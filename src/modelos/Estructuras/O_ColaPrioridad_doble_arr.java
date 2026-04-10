@@ -1,6 +1,6 @@
 package modelos.Estructuras;
 
-import interfaces.I_ColaPrioridad;
+import interfaces.Estructuras.I_ColaPrioridad;
 
 public class O_ColaPrioridad_doble_arr implements I_ColaPrioridad {
     private int[] elementos;

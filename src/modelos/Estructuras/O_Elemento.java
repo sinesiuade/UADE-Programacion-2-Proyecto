@@ -1,6 +1,6 @@
 package modelos.Estructuras;
 
-import interfaces.I_Elemento;
+import interfaces.Estructuras.I_Elemento;
 
 public class O_Elemento implements I_Elemento {
     private int valor;

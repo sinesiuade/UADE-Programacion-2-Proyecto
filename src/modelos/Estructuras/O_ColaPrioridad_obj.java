@@ -1,7 +1,7 @@
 package modelos.Estructuras;
 
-import interfaces.I_ColaPrioridad;
-import interfaces.I_Elemento;
+import interfaces.Estructuras.I_ColaPrioridad;
+import interfaces.Estructuras.I_Elemento;
 
 public class O_ColaPrioridad_obj implements I_ColaPrioridad {
     private I_Elemento[] elementos;

@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.Estructuras;
 
 public interface I_Elemento {
     void cargar(int valor, int prioridad);
