@@ -1,24 +1,20 @@
 package modelos;
 
-public class Alumno 
-{
+public class Estudiante {
     private Materia[] materias = new Materia[10];
-    private Materia[] materiasAIngresar= new Materia[10];
+    private Materia[] materiasAIngresar = new Materia[10];
     private String nombre = "";
     private String mail = "";
     private int prioridad;
 
-
-    public void agregarMateria(Materia materia)
-    {
+    public void agregarMateria(Materia materia) {
 
     }
 
-    public void Alumno(String nombre, String mail, int prioridad)
-    {
-        this.nombre=nombre;
-        this.mail=mail;
-        this.prioridad=prioridad;
+    public void Alumno(String nombre, String mail, int prioridad) {
+        this.nombre = nombre;
+        this.mail = mail;
+        this.prioridad = prioridad;
     }
 
     public Materia[] getMaterias() {
@@ -53,4 +49,3 @@ public class Alumno
         this.prioridad = prioridad;
     }
 }
-

@@ -1,4 +1,4 @@
-package modelos;
+package modelos.Estructuras;
 
 import interfaces.I_Elemento;
 

@@ -1,16 +1,14 @@
 package modelos;
 
-public class Comision 
-{
-    private Alumno[] alumnos = new Alumno[50];
+public class Comision {
+    private Estudiante[] alumnos = new Estudiante[50];
     private int id;
 
-    public Alumno[] getAlumnos()
-    {
+    public Estudiante[] getAlumnos() {
         return alumnos;
     }
-    public void agregarAlumno()
-    {
+
+    public void agregarAlumno() {
 
     }
 }
