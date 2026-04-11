@@ -1,7 +1,6 @@
-package modelos;
-
 public class Comision 
 {
+
     private Alumno[] alumnos = new Alumno[50];
     private int id;
 
@@ -9,8 +8,14 @@ public class Comision
     {
         return alumnos;
     }
-    public void agregarAlumno()
-    {
 
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public int getId()
+    {
+        return id;
     }
 }

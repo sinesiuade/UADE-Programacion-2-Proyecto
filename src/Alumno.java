@@ -1,18 +1,11 @@
-package modelos;
-
 public class Alumno 
 {
+    //recomendaría que materias sea un conjunto, pq sino no se me ocurre donde meter ese tipo de TDA. Además no se va a necesitar revisar su contenido para ninguna función del código
     private Materia[] materias = new Materia[10];
     private Materia[] materiasAIngresar= new Materia[10];
     private String nombre = "";
     private String mail = "";
     private int prioridad;
-
-
-    public void agregarMateria(Materia materia)
-    {
-
-    }
 
     public void Alumno(String nombre, String mail, int prioridad)
     {

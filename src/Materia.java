@@ -1,4 +1,3 @@
-package modelos;
 
 public class Materia 
 {
