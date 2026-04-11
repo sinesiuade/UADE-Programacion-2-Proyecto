@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Valor: " + cola1.primero() + " Prioridad: " + cola1.prioridadPrimero());
             cola1.desencolar();
         }
-
+        // pepe2
         System.out.println("\nDesencolando elementos de la cola2:");
         while (!cola2.estaVacia()) {
             System.out.println("Valor: " + cola2.primero() + " Prioridad: " + cola2.prioridadPrimero());
