@@ -1,7 +1,7 @@
-package interfaces.Estructuras;
+package interfaces.estructuras;
 
-import modelos.Estructuras.Nodo_Estudiante;
 import interfaces.I_Estudiante;
+import modelos.estructuras.Nodo_Estudiante;
 
 public interface I_DiccionarioSimpleDinamico {
     void inicializar();// pre: no aplica

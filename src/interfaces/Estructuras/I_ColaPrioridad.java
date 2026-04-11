@@ -1,4 +1,4 @@
-package interfaces.Estructuras;
+package interfaces.estructuras;
 
 public interface I_ColaPrioridad {
     void inicializar();

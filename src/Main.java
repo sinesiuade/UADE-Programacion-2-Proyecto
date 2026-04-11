@@ -1,6 +1,6 @@
 import modelos.*;
-import modelos.Estructuras.O_ColaPrioridad_doble_arr;
-import modelos.Estructuras.O_ColaPrioridad_obj;
+import modelos.estructuras.O_ColaPrioridad_doble_arr;
+import modelos.estructuras.O_ColaPrioridad_obj;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package interfaces.Estructuras;
+package interfaces.estructuras;
 
 import modelos.Estudiante;
 

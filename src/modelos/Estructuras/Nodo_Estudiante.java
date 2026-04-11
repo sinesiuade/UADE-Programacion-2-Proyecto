@@ -1,6 +1,6 @@
-package modelos.Estructuras;
+package modelos.estructuras;
 
-import interfaces.Estructuras.I_Nodo_Estudiante;
+import interfaces.estructuras.I_Nodo_Estudiante;
 import modelos.Estudiante;
 
 public class Nodo_Estudiante implements I_Nodo_Estudiante {
@@ -15,7 +15,7 @@ public class Nodo_Estudiante implements I_Nodo_Estudiante {
     }
 
     @Override
-    public void cargarSiguiente(interfaces.Estructuras.I_Nodo_Estudiante nodo) {
+    public void cargarSiguiente(interfaces.estructuras.I_Nodo_Estudiante nodo) {
         this.siguiente = (Nodo_Estudiante) nodo;
     }
 

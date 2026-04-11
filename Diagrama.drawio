@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2026-04-11T19:34:12.760Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="EmRqWzCq5n_45J3r_6JR" version="21.6.8" type="device">
+<mxfile host="Electron" modified="2026-04-11T19:49:45.474Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="g5Losg-mQzSjMH-qLDEP" version="21.6.8" type="device">
   <diagram name="Página-1" id="QSdjtpySqwtoSuKFaauk">
-    <mxGraphModel dx="1358" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1105" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -187,6 +187,9 @@
         </mxCell>
         <mxCell id="T1Bcoi3yqeFawOS4JA7V-59" value="eliminarMateria() va a tener que iterar entre todos los estudiantes eliminando, de todos los que esten inscriptos a la misma, dicha materia.&lt;br&gt;&lt;br&gt;init() (propia del sistema) (simula carga de base de datos)&lt;br&gt;iniciarSesion() ambos&lt;br&gt;solicitarMateriasConCupo() ambos&lt;br&gt;solicitarInscripción() estudiante&lt;br&gt;cargarInscripcionEnCola() (propia del sistema)&lt;br&gt;gestionarInscripciones() admin&lt;br&gt;getMateriasInscriptas() estudiante&lt;br&gt;desinscribirDeMateria() estudiante&lt;br&gt;agregarMateria() admin&lt;br&gt;eliminarMateria() admin&lt;br&gt;agregarEstudiante() admin&lt;br&gt;eliminarEstudiante() admin&lt;br&gt;&lt;br&gt;- significa que es un método privado&lt;br&gt;+ significa que es un método público" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="760" y="540" width="320" height="284" as="geometry" />
+        </mxCell>
+        <mxCell id="T1Bcoi3yqeFawOS4JA7V-60" value="Estudiante, Admin, Usuario, Set: Mauri&lt;br&gt;Diccionario_D y Pedido: Vincen&lt;br&gt;Cola_E y Materia:Juani&lt;br&gt;Sistema de Matricula: Dante y&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="600" width="230" height="150" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

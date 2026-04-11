@@ -1,4 +1,4 @@
-package modelos.Consola;
+package modelos.consola;
 
 public class Consola {
 

@@ -1,7 +1,7 @@
-package modelos.Estructuras;
+package modelos.estructuras;
 
-import interfaces.Estructuras.I_DiccionarioSimpleDinamico;
 import interfaces.I_Estudiante;
+import interfaces.estructuras.I_DiccionarioSimpleDinamico;
 
 public class DiccionarioSimpleDinamico implements I_DiccionarioSimpleDinamico {
     private Nodo_Estudiante primer_nodo;
