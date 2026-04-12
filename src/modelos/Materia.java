@@ -3,10 +3,6 @@ package modelos;
 public class Materia {
     private String nombre;
 
-    public void Materia(Comision[] comisiones, String nombre) {
-        this.nombre = nombre;
-    }
-
     public void Materia(String nombre) {
         this.nombre = nombre;
     }
