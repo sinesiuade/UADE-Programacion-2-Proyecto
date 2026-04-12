@@ -1,9 +1,15 @@
 public class NodoDiccionario 
 {
     private int clave=0;
-    private Estudiante estudiante;
-    private Estudiante siguiente=null;
+    private Estudiante estudiante=null;
+    private NodoDiccionario siguiente=null;
 
+    public void NodoDiccionario()
+    {
+        clave=0;
+        estudiante=null;
+        siguiente=null;
+    }
     public void NodoDiccionario(Estudiante estudiante)
     {
         clave = estudiante.getDni();
@@ -25,14 +31,64 @@ public class NodoDiccionario
         this.estudiante = estudiante;
     }
 
-    public void agregar(Estudiante siguiente)
+    public void agregar(NodoDiccionario siguiente)
     {
         this.siguiente=siguiente;
     }
 
-    public Estudiante getSiguiente()
+    public NodoDiccionario getSiguiente()
     {
         return siguiente;
+    }
+
+    public Estudiante buscarDni(int dni)
+    {
+        if(clave==dni)
+        {
+            return estudiante;
+        }
+        else
+        {
+            if(siguiente!=null)
+            {
+                return siguiente.buscarDni(dni);
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+
+    public void eliminarEstudiante(int dni)
+    {
+        if (clave==dni) 
+        {
+            estudiante=null;
+        }
+        else
+        {
+            if(siguiente!=null)
+            {
+                if(siguiente.getClave()==dni && siguiente.getSiguiente()==null)
+                {
+                    siguiente=siguiente.getSiguiente();
+                    System.out.println("Estudiante "+ siguiente.getEstudiante().getNombre() + " eliminado.");
+                }
+                else
+                {
+                    if(siguiente.getClave()==dni)
+                    {
+                        siguiente=null;
+                        System.out.println("Estudiante "+ siguiente.getEstudiante().getNombre() + " eliminado.");
+                    }
+                    else
+                    {
+                        siguiente.eliminarEstudiante(dni);
+                    }
+                }
+            }
+        }
     }
 
     

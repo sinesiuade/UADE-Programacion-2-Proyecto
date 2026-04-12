@@ -1,6 +1,7 @@
 
 
 public class Materia {
+    private int cupo;
     private String nombre;
 
     public void Materia(String nombre) {
@@ -13,5 +14,13 @@ public class Materia {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getCupo() {
+        return cupo;
+    }
+
+    public void setCupo(int cupo) {
+        this.cupo = cupo;
     }
 }
