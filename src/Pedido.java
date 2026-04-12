@@ -15,4 +15,13 @@ public class Pedido
     {
         this.materia = materia;
     }
+    public Materia getMateria()
+    {
+        return materia;
+    }
+    public void mostrarPedido()
+    {
+        System.out.println("Estudiante: " + estudiante.getNombre() + " - Materia: " + materia.getNombre());
+    }
+    
 }
