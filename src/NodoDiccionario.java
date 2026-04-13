@@ -10,7 +10,7 @@ public class NodoDiccionario
         estudiante=null;
         siguiente=null;
     }
-    public void NodoDiccionario(Estudiante estudiante)
+    public NodoDiccionario(Estudiante estudiante)
     {
         clave = estudiante.getDni();
         this.estudiante = estudiante;
@@ -19,6 +19,11 @@ public class NodoDiccionario
     public int getClave()
     {
         return clave;
+    }
+
+    public void setClave(int clave)
+    {
+        this.clave = clave;
     }
 
     public Estudiante getEstudiante()
@@ -31,7 +36,7 @@ public class NodoDiccionario
         this.estudiante = estudiante;
     }
 
-    public void agregar(NodoDiccionario siguiente)
+    public void setSiguiente(NodoDiccionario siguiente)
     {
         this.siguiente=siguiente;
     }
@@ -87,6 +92,27 @@ public class NodoDiccionario
                         siguiente.eliminarEstudiante(dni);
                     }
                 }
+            }
+        }
+    }
+
+    public void agregarEstudiante(Estudiante estudiante)
+    {
+        if(clave==0)
+        {
+            clave=estudiante.getDni();
+            this.estudiante=estudiante;
+        }
+        else
+        {
+            if(siguiente==null)
+            {
+                NodoDiccionario nuevoNodo = new NodoDiccionario(estudiante);
+                siguiente=nuevoNodo;
+            }
+            else
+            {
+                siguiente.agregarEstudiante(estudiante);
             }
         }
     }
