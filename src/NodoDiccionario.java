@@ -1,3 +1,5 @@
+import obj.Estudiante;
+
 public class NodoDiccionario 
 {
     private int clave=0;

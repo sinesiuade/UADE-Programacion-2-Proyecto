@@ -1,3 +1,6 @@
+import obj.Estudiante;
+import obj.Materia;
+
 public class Pedido 
 {
     private Estudiante estudiante;

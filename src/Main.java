@@ -1,9 +1,13 @@
+import interfaces.Estructuras.I_ConjuntoEstatico;
 import modelos.*;
-import modelos.estructuras.O_ColaPrioridad_doble_arr;
-import modelos.estructuras.O_ColaPrioridad_obj;
+import modelos.Estructuras.O_ColaPrioridad_doble_arr;
+import modelos.Estructuras.O_ColaPrioridad_obj;
+import modelos.Estructuras.SetEstaticoImp;
+import obj.Materia;
 
 public class Main {
     public static void main(String[] args) {
+
         O_ColaPrioridad_doble_arr cola1 = new O_ColaPrioridad_doble_arr();
         O_ColaPrioridad_obj cola2 = new O_ColaPrioridad_obj();
 
@@ -30,5 +34,8 @@ public class Main {
             cola2.desencolar();
         }
         // pepe
+        
     }
+
+   
 }
