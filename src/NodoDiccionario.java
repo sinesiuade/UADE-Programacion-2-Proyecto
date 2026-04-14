@@ -1,4 +1,4 @@
-import obj.Estudiante;
+import usuarios.Estudiante;
 
 public class NodoDiccionario 
 {

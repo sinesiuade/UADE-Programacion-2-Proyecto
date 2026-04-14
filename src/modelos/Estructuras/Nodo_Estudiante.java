@@ -1,7 +1,7 @@
 package modelos.estructuras;
 
 import interfaces.estructuras.I_Nodo_Estudiante;
-import obj.Estudiante;
+import usuarios.Estudiante;
 
 public class Nodo_Estudiante implements I_Nodo_Estudiante {
     private int clave;

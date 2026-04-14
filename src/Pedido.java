@@ -1,5 +1,5 @@
-import obj.Estudiante;
 import obj.Materia;
+import usuarios.Estudiante;
 
 public class Pedido 
 {
