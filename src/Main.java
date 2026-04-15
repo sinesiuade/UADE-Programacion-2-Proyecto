@@ -1,6 +1,7 @@
 import modelos.*;
 import modelos.estructuras.O_ColaPrioridad_doble_arr;
 import modelos.estructuras.O_ColaPrioridad_obj;
+import modelos.estructuras.O_ColaPedidos_arr;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,5 +31,48 @@ public class Main {
             cola2.desencolar();
         }
         // pepe
+
+        // --- Cola de Pedidos de Inscripcion (FIFO estatica) ---
+        System.out.println("\n--- Cola de Pedidos de Inscripcion ---");
+        O_ColaPedidos_arr colaPedidos = new O_ColaPedidos_arr();
+        colaPedidos.inicializar();
+
+        Estudiante juan = new Estudiante();
+        juan.setDni(111);
+        juan.setNombre("Juan");
+
+        Estudiante ana = new Estudiante();
+        ana.setDni(222);
+        ana.setNombre("Ana");
+
+        Materia progra2 = new Materia();
+        progra2.setNombre("Programacion 2");
+        progra2.setCupo(1);
+
+        Pedido pedido1 = new Pedido();
+        pedido1.setEstudiante(juan);
+        pedido1.setMateria(progra2);
+
+        Pedido pedido2 = new Pedido();
+        pedido2.setEstudiante(ana);
+        pedido2.setMateria(progra2);
+
+        colaPedidos.encolar(pedido1);
+        colaPedidos.encolar(pedido2);
+
+        System.out.println("Procesando pedidos FIFO:");
+        while (!colaPedidos.estaVacia()) {
+            Pedido pedidoActual = colaPedidos.primero();
+            pedidoActual.mostrarPedido();
+            Materia materia = pedidoActual.getMateria();
+            if (materia.getCupo() > 0) {
+                pedidoActual.getEstudiante().agregarMateria(materia);
+                materia.setCupo(materia.getCupo() - 1);
+                System.out.println("  -> Inscripcion aceptada");
+            } else {
+                System.out.println("  -> Sin cupo, inscripcion rechazada");
+            }
+            colaPedidos.desencolar();
+        }
     }
 }
