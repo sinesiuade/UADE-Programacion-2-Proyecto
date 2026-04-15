@@ -32,7 +32,7 @@ public class Main {
         }
         // pepe
 
-        // --- Cola de Pedidos de Inscripcion (FIFO estatica) ---
+        // --- Demo cola pedidos ---
         System.out.println("\n--- Cola de Pedidos de Inscripcion ---");
         O_ColaPedidos_arr colaPedidos = new O_ColaPedidos_arr();
         colaPedidos.inicializar();
