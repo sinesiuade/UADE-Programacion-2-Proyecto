@@ -6,27 +6,27 @@ public class Usuario {
     protected String nombre;
     protected String apellido;
 
-    public void SetDocumento(int documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 
-    public void SetNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void SetApellido(String apellido) {
+    public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    public int GetDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public String GetNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public String GetApellido() {
+    public String getApellido() {
         return apellido;
     }
 
