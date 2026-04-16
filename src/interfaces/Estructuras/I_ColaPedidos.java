@@ -1,15 +1,15 @@
 package interfaces.estructuras;
 
-import Pedido;
+import modelos.PedidoDeInscripcion;
 
 public interface I_ColaPedidos {
     void inicializar();
 
-    boolean encolar(Pedido pedido);
+    boolean encolar(PedidoDeInscripcion pedido);
 
     void desencolar();
 
     boolean estaVacia();
 
-    Pedido primero();
+    PedidoDeInscripcion primero();
 }

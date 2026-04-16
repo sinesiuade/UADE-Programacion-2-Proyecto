@@ -1,3 +1,7 @@
+package modelos.estructuras;
+
+import modelos.usuario.Estudiante;
+
 public class NodoDiccionario {
     private int clave = 0;
     private Estudiante estudiante = null;
