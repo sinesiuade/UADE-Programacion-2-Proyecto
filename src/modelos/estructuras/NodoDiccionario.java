@@ -1,21 +1,17 @@
 package modelos.estructuras;
 
 import modelos.usuario.Estudiante;
+import modelos.usuario.Usuario;
 
 public class NodoDiccionario {
     private int clave = 0;
-    private Estudiante estudiante = null;
+    private Usuario usuario = null;
     private NodoDiccionario siguiente = null;
 
-    public void NodoDiccionario() {
-        clave = 0;
-        estudiante = null;
+    public NodoDiccionario(Usuario usuario) {
+        clave = usuario.getDocumento();
+        this.usuario = usuario;
         siguiente = null;
-    }
-
-    public NodoDiccionario(Estudiante estudiante) {
-        clave = estudiante.getDni();
-        this.estudiante = estudiante;
     }
 
     public int getClave() {
@@ -26,12 +22,12 @@ public class NodoDiccionario {
         this.clave = clave;
     }
 
-    public Estudiante getEstudiante() {
-        return estudiante;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public void setSiguiente(NodoDiccionario siguiente) {
@@ -39,12 +35,12 @@ public class NodoDiccionario {
     }
 
     public NodoDiccionario getSiguiente() {
-        return siguiente;
+        return this.siguiente;
     }
 
-    public Estudiante buscarDni(int dni) {
+    public Usuario buscarDni(int dni) {
         if (clave == dni) {
-            return estudiante;
+            return usuario;
         } else {
             if (siguiente != null) {
                 return siguiente.buscarDni(dni);
@@ -54,36 +50,36 @@ public class NodoDiccionario {
         }
     }
 
-    public void eliminarEstudiante(int dni) {
+    public void eliminarUsuario(int dni) {
         if (clave == dni) {
-            estudiante = null;
+            usuario = null;
         } else {
             if (siguiente != null) {
                 if (siguiente.getClave() == dni && siguiente.getSiguiente() == null) {
                     siguiente = siguiente.getSiguiente();
-                    System.out.println("Estudiante " + siguiente.getEstudiante().getNombre() + " eliminado.");
+                    System.out.println("Estudiante " + siguiente.getUsuario().getNombre() + " eliminado.");
                 } else {
                     if (siguiente.getClave() == dni) {
                         siguiente = null;
-                        System.out.println("Estudiante " + siguiente.getEstudiante().getNombre() + " eliminado.");
+                        System.out.println("Estudiante " + siguiente.getUsuario().getNombre() + " eliminado.");
                     } else {
-                        siguiente.eliminarEstudiante(dni);
+                        siguiente.eliminarUsuario(dni);
                     }
                 }
             }
         }
     }
 
-    public void agregarEstudiante(Estudiante estudiante) {
+    public void agregarUsuario(Usuario usuario) {
         if (clave == 0) {
-            clave = estudiante.getDni();
-            this.estudiante = estudiante;
+            clave = usuario.getDocumento();
+            this.usuario = usuario;
         } else {
             if (siguiente == null) {
-                NodoDiccionario nuevoNodo = new NodoDiccionario(estudiante);
+                NodoDiccionario nuevoNodo = new NodoDiccionario(usuario);
                 siguiente = nuevoNodo;
             } else {
-                siguiente.agregarEstudiante(estudiante);
+                siguiente.agregarUsuario(usuario);
             }
         }
     }
