@@ -18,6 +18,7 @@ public class Consola {
     public static final String MAGENTA = "\033[35m";
     public static final String CYAN = "\033[36m";
     public static final String BLANCO = "\033[37m";
+    public static final String GRIS = "\033[90m";
 
     // Limpiar pantalla
     public static void limpiar() {
@@ -49,10 +50,6 @@ public class Consola {
         return scanner.nextLine();
     }
 
-    /**
-     * Lee un número entero. Incluye manejo de errores básico para evitar que el
-     * programa explote.
-     */
     public static int inputInt(String mensaje) {
         while (true) {
             try {
@@ -65,9 +62,7 @@ public class Consola {
         }
     }
 
-    /**
-     * Muestra un mensaje y espera a que el usuario presione Enter para continuar.
-     */
+    // Métodos útiles
     public static void pausar() {
         System.out.println("\nPresione Enter para continuar...");
         scanner.nextLine();

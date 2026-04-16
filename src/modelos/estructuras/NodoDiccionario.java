@@ -83,4 +83,15 @@ public class NodoDiccionario {
         }
     }
 
+    public Usuario getUsuario(int documento) {
+        if (this.clave == documento) {
+            return this.usuario;
+        }
+
+        if (this.siguiente != null) {
+            return this.siguiente.getUsuario(documento);
+        }
+
+        return null;
+    }
 }

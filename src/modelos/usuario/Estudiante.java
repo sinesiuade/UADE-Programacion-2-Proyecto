@@ -7,6 +7,10 @@ public class Estudiante extends Usuario {
     private Materia[] materiasalumno = new Materia[10];
     private int cant = 0;
 
+    public Estudiante(int documento, String nombre, String apellido, String contraseña) {
+        super(documento, nombre, apellido, contraseña);
+    }
+
     public void inscribirseMateria(Materia materia) { // Permite inscribirse a materias
         if (cant < materiasalumno.length) {
             materiasalumno[cant] = materia;
