@@ -419,3 +419,4 @@ FodyWeavers.xsd
 
 # Mios
 *.class
+src/run.bat

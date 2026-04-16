@@ -11,7 +11,7 @@ public class SistemaDeMatricula {
     private Usuario usuario_actual;
 
     public SistemaDeMatricula() {
-        Usuario administrador = new Usuario(123, "Admin", "Admin", "Admin");
+        Usuario administrador = new Usuario(123, "admin", "admin", "admin");
         this.usuarios = new NodoDiccionario(administrador);
 
         // La idea acá sería hacer una inicialización, con algúnas materias de ejemplo,
@@ -31,7 +31,6 @@ public class SistemaDeMatricula {
                 usuarioLogeado();
             }
         }
-        System.out.println("Hola");
     }
 
     private void usuarioSinLogear() {
@@ -43,12 +42,13 @@ public class SistemaDeMatricula {
         if (usuario == null) {
             this.consola.println("Documento o Contraseña incorrectos, intente denuevo.");
         } else {
-            this.consola.println("bienvenido");
+            this.consola.println("Bienvenido " + usuario.getNombre());
+            this.usuario_actual = usuario;
         }
     }
 
     private void usuarioLogeado() {
-
+        this.consola.println("ya esta logeado");
     }
 
     private Usuario buscarYValidarUsuario(int documento, String contrasenia) {
