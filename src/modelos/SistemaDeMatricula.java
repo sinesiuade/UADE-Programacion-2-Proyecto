@@ -2,12 +2,14 @@ package modelos;
 
 import modelos.consola.Consola;
 import modelos.estructuras.NodoDiccionario;
+import modelos.estructuras.ConjuntoEstatico;
 import modelos.usuario.Admin;
 import modelos.usuario.Estudiante;
 import modelos.usuario.Usuario;
 
 public class SistemaDeMatricula {
     private NodoDiccionario usuarios;
+    private ConjuntoEstatico materias;
     private Consola consola;
     private boolean esta_corriendo;
     private Usuario usuario_actual;
@@ -58,7 +60,7 @@ public class SistemaDeMatricula {
 
     private void usuarioLogeado() {
         if (this.usuario_actual instanceof Admin) {
-            this.consola.println("Que desea hacer:");
+            this.consola.println("Administrador, que desea hacer:");
             this.consola.println("0 - Registrar nuevo estudiante.");
             this.consola.println("1 - peto");
             this.consola.println("2 - pito");
@@ -92,7 +94,42 @@ public class SistemaDeMatricula {
                     break;
             }
         } else {
-            // this.consola.println("Usted es Pete");
+            this.consola.println("Estudiante, que desea hacer:");
+            this.consola.println("0 - Ver materias disponibles.");
+            this.consola.println("1 - Solicitar inscripción a materia.");
+            this.consola.println("2 - pito");
+            this.consola.println("3 - poto");
+            this.consola.println("4 - Salir.");
+            int elección = this.consola.inputInt("Elección: ");
+            switch (elección) {
+                case 0:
+                    this.consola.limpiar();
+                    this.consola.printlnColor(Consola.CYAN, "Materias disponibles:");
+
+                    ConjuntoEstatico materias_aux = new ConjuntoEstatico();
+
+                    while (!this.materias.estaVacio()) {
+                        Materia materia_aux;
+
+                        materia_aux = this.materias.sacar(materia_aux);
+                    }
+
+                    this.consola.limpiar();
+                    this.consola.printlnColor(Consola.VERDE, "Estudiante registrado con éxito.");
+                    break;
+
+                case 4:
+                    this.consola.limpiar();
+                    this.usuario_actual = null;
+                    this.consola.printlnColor(Consola.VERDE, "Sesión cerrada con éxito.");
+                    break;
+
+                default:
+                    this.consola.limpiar();
+                    this.consola.printlnColor(Consola.ROJO, "No ha indicado una opción válida.");
+
+                    break;
+            }
         }
     }
 }

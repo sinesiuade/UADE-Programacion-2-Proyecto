@@ -6,15 +6,15 @@ import modelos.Materia;
 
 public interface I_ConjuntoEstatico {
 
-    void InicializarConjunto();
+    void inicializar();
 
-    void Agregar(Materia materia);
+    void agregar(Materia materia);
 
-    Materia Elegir();
+    Materia elegir();
 
-    boolean ConjuntoVacio();
+    boolean estaVacio();
 
-    void Sacar(Materia materia);
+    void sacar(Materia materia);
 
-    boolean Pertenece(Materia materia);
+    boolean pertenece(Materia materia);
 }

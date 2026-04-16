@@ -4,7 +4,7 @@ public class Materia {
     private int cupo;
     private String nombre;
 
-    public void Materia(String nombre) {
+    public Materia(String nombre) {
         this.nombre = nombre;
     }
 
