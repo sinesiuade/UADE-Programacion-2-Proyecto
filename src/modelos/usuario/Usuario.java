@@ -7,6 +7,13 @@ public class Usuario {
     protected String apellido;
     protected String contraseña;
 
+    public Usuario(int documento, String nombre, String apellido, String contraseña) {
+        this.documento = documento;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contraseña = contraseña;
+    }
+
     public void setDocumento(int documento) {
         this.documento = documento;
     }

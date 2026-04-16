@@ -11,7 +11,9 @@ public class SistemaDeMatricula {
     private Usuario usuario_actual;
 
     public SistemaDeMatricula() {
-        this.usuarios = new Usuario;
+        Usuario administrador = new Usuario(123, "Admin", "Admin", "Admin");
+        this.usuarios = new NodoDiccionario(administrador);
+
         // La idea acá sería hacer una inicialización, con algúnas materias de ejemplo,
         // USUARIO ADMIN, y algún que otro estudiante.
 
@@ -33,10 +35,15 @@ public class SistemaDeMatricula {
     }
 
     private void usuarioSinLogear() {
-        String usuario_login = this.consola.inputString("Ingrese su usuario: ");
+        int documento_login = this.consola.inputInt("Ingrese su usuario: ");
         String contraseña_login = this.consola.inputString("Ingrese su contraseña: ");
-        if (validarUsuario(usuario_login, contraseña_login)) {
 
+        Usuario usuario = buscarYValidarUsuario(documento_login, contraseña_login);
+
+        if (usuario == null) {
+            this.consola.println("Documento o Contraseña incorrectos, intente denuevo.");
+        } else {
+            this.consola.println("bienvenido");
         }
     }
 
@@ -44,20 +51,21 @@ public class SistemaDeMatricula {
 
     }
 
-    private boolean validarUsuario(String nombre, String contraseña) {
-        // Verificamos que el arreglo no sea nulo
-        if (this.usuarios == null)
-            return false;
+    private Usuario buscarYValidarUsuario(int documento, String contrasenia) {
+        NodoDiccionario actual = this.usuarios;
 
-        for (Usuario u : this.usuarios) {
-            // Importante: checkear que 'u' no sea null (por si el arreglo no está lleno)
+        while (actual != null) {
+            Usuario u = actual.getUsuario();
+
             if (u != null) {
-                // Comparamos nombre Y contraseña
-                if (u.getNombre().equals(nombre) && u.getContrasena().equals(contraseña)) {
-                    return true; // Encontrado y verificado
+                if (u.getDocumento() == documento && u.getContrasena().equals(contrasenia)) {
+                    return u;
                 }
             }
+
+            actual = actual.getSiguiente();
         }
-        return false; // Si termina el bucle y no encontró nada
+
+        return null;
     }
 }

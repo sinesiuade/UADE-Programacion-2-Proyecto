@@ -1,6 +1,5 @@
 package modelos.estructuras;
 
-import modelos.usuario.Estudiante;
 import modelos.usuario.Usuario;
 
 public class NodoDiccionario {
@@ -57,11 +56,11 @@ public class NodoDiccionario {
             if (siguiente != null) {
                 if (siguiente.getClave() == dni && siguiente.getSiguiente() == null) {
                     siguiente = siguiente.getSiguiente();
-                    System.out.println("Estudiante " + siguiente.getUsuario().getNombre() + " eliminado.");
+                    System.out.println("Usuario " + siguiente.getUsuario().getNombre() + " eliminado.");
                 } else {
                     if (siguiente.getClave() == dni) {
                         siguiente = null;
-                        System.out.println("Estudiante " + siguiente.getUsuario().getNombre() + " eliminado.");
+                        System.out.println("Usuario " + siguiente.getUsuario().getNombre() + " eliminado.");
                     } else {
                         siguiente.eliminarUsuario(dni);
                     }
