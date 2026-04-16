@@ -8,7 +8,7 @@ public class SistemaDeMatricula {
     private boolean esta_corriendo;
     private Usuario usuario_actual;
 
-    public void SistemaDeMatricula() {
+    public SistemaDeMatricula() {
         // La idea acá sería hacer una inicialización, con algúnas materias de ejemplo,
         // USUARIO ADMIN, y algún que otro estudiante.
 

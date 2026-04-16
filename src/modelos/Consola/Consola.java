@@ -1,6 +1,10 @@
 package modelos.consola;
 
+import java.util.Scanner;
+
 public class Consola {
+
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Reset
     public static final String RESET = "\033[0m";
@@ -38,4 +42,6 @@ public class Consola {
     public static void printColor(String color, String texto) {
         System.out.print(color + texto + RESET);
     }
+
+    // Input
 }
