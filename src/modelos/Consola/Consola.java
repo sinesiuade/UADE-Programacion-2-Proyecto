@@ -26,11 +26,11 @@ public class Consola {
     }
 
     // Escribir sin color
-    public static void println(String color, String texto) {
+    public static void println(String texto) {
         System.out.println(RESET + texto);
     }
 
-    public static void print(String color, String texto) {
+    public static void print(String texto) {
         System.out.print(RESET + texto);
     }
 
@@ -44,4 +44,32 @@ public class Consola {
     }
 
     // Input
+    public static String inputString(String mensaje) {
+        System.out.print(mensaje + " ");
+        return scanner.nextLine();
+    }
+
+    /**
+     * Lee un número entero. Incluye manejo de errores básico para evitar que el
+     * programa explote.
+     */
+    public static int inputInt(String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje + " ");
+                String entrada = scanner.nextLine(); // Leemos como texto
+                return Integer.parseInt(entrada); // Intentamos convertir a número
+            } catch (NumberFormatException e) {
+                printlnColor(ROJO, "Error: Por favor, ingrese un número válido.");
+            }
+        }
+    }
+
+    /**
+     * Muestra un mensaje y espera a que el usuario presione Enter para continuar.
+     */
+    public static void pausar() {
+        System.out.println("\nPresione Enter para continuar...");
+        scanner.nextLine();
+    }
 }

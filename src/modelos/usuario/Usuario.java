@@ -5,6 +5,7 @@ public class Usuario {
     protected int documento;
     protected String nombre;
     protected String apellido;
+    protected String contraseña;
 
     public void setDocumento(int documento) {
         this.documento = documento;
@@ -28,6 +29,10 @@ public class Usuario {
 
     public String getApellido() {
         return apellido;
+    }
+
+    public String getContrasena() {
+        return contraseña;
     }
 
 }
