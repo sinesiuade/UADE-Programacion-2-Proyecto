@@ -5,13 +5,18 @@ public class Usuario {
     protected int documento;
     protected String nombre;
     protected String apellido;
-    protected String contraseña;
+    protected String contrasena;
 
-    public Usuario(int documento, String nombre, String apellido, String contraseña) {
+
+    public Usuario() {
+    }
+
+
+    public Usuario(int documento, String nombre, String apellido, String contrasena) {
         this.documento = documento;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public void setDocumento(int documento) {
@@ -26,6 +31,11 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+
     public int getDocumento() {
         return documento;
     }
@@ -39,7 +49,7 @@ public class Usuario {
     }
 
     public String getContrasena() {
-        return contraseña;
+        return contrasena;
     }
 
 }

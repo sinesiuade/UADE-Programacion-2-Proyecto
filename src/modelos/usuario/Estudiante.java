@@ -7,6 +7,10 @@ public class Estudiante extends Usuario {
     private Materia[] materiasalumno = new Materia[10];
     private int cant = 0;
 
+    public Estudiante() {
+        super();
+    }
+
     public Estudiante(int documento, String nombre, String apellido, String contraseña) {
         super(documento, nombre, apellido, contraseña);
     }
@@ -24,17 +28,19 @@ public class Estudiante extends Usuario {
 
     }
 
-    public void eliminarMateriaInscripta(Materia materia) { // Elimina de materiasalumno la materia que se envio como
-                                                            // parametro
+    public void eliminarMateriaInscripta(Materia materia) {
         int i = 0;
 
-        while (i < cant && materiasalumno[i] != materia) {
+        //buscar
+        while (i < cant && !materiasalumno[i].getNombre().equals(materia.getNombre())) {
             i++;
+        }
 
-            if (i < cant) {
-                materiasalumno[i] = materiasalumno[cant - 1];
-                cant--;
-            }
+        // eliminar si la encontro
+        if (i < cant) {
+            materiasalumno[i] = materiasalumno[cant - 1];
+            materiasalumno[cant - 1] = null;
+            cant--;
         }
     }
 }
