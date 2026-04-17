@@ -4,17 +4,17 @@ import modelos.Materia;
 
 // Esta interfaz trabaja con el la materia como parametro que se envia como objeto total
 
-public interface I_ConjuntoEstatico {
+public interface I_ConjuntoEstaticoInt {
 
     void inicializar();
 
-    void agregar(Materia materia);
+    void agregar(int valor);
 
-    Materia elegir();
+    int elegir();
 
     boolean estaVacio();
 
-    void sacar(Materia materia);
+    void sacar(int valor);
 
-    boolean pertenece(Materia materia);
+    boolean pertenece(int valor);
 }

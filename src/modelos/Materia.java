@@ -1,11 +1,21 @@
 package modelos;
 
 public class Materia {
-    private int cupo;
+    private int id;
     private String nombre;
+    private int cupo;
 
-    public Materia(String nombre) {
+    public Materia(String nombre, int cupo) {
         this.nombre = nombre;
+        this.cupo = cupo;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

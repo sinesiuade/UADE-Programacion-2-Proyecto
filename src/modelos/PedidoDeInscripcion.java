@@ -24,7 +24,7 @@ public class PedidoDeInscripcion {
     }
 
     public void mostrarPedido() {
-        System.out.println("Estudiante: " + estudiante.GetNombre() + " - Materia: " + materia.getNombre());
+        System.out.println("Estudiante: " + estudiante.getNombre() + " - Materia: " + materia.getNombre());
     }
 
 }

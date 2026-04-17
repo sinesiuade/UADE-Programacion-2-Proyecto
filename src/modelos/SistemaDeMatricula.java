@@ -1,15 +1,15 @@
 package modelos;
 
 import modelos.consola.Consola;
-import modelos.estructuras.NodoDiccionario;
-import modelos.estructuras.ConjuntoEstatico;
+import modelos.estructuras.DiccionarioDinamico;
+import modelos.estructuras.ConjuntoEstaticoMateria;
 import modelos.usuario.Admin;
 import modelos.usuario.Estudiante;
 import modelos.usuario.Usuario;
 
 public class SistemaDeMatricula {
-    private NodoDiccionario usuarios;
-    private ConjuntoEstatico materias;
+    private DiccionarioDinamico usuarios;
+    private ConjuntoEstaticoMateria materias;
     private Consola consola;
     private boolean esta_corriendo;
     private Usuario usuario_actual;
@@ -18,8 +18,18 @@ public class SistemaDeMatricula {
         Admin administrador = new Admin(001, "admin", "admin", "admin");
         Estudiante estudiante = new Estudiante(111, "Dante", "Sinesi", "dante");
 
-        this.usuarios = new NodoDiccionario(administrador);
-        this.usuarios.agregarUsuario(estudiante);
+        this.usuarios = new DiccionarioDinamico();
+        this.usuarios.agregar(administrador.getDocumento(), administrador);
+        this.usuarios.agregar(estudiante.getDocumento(), estudiante);
+
+        this.materias = new ConjuntoEstaticoMateria();
+        this.materias.inicializar();
+
+        Materia materia_0 = new Materia("Cálculo", 10);
+        Materia materia_1 = new Materia("Programación 1", 2);
+
+        this.materias.agregar(materia_0);
+        this.materias.agregar(materia_1);
 
         // La idea acá sería hacer una inicialización, con algúnas materias de ejemplo,
         // USUARIO ADMIN, y algún que otro estudiante.
@@ -45,7 +55,7 @@ public class SistemaDeMatricula {
         int documento_login = this.consola.inputInt("Ingrese su documento: ");
         String contraseña_login = this.consola.inputString("Ingrese su contraseña: ");
 
-        Usuario usuario = usuarios.getUsuario(documento_login);
+        Usuario usuario = usuarios.recuperar(documento_login);
 
         if (usuario == null || !usuario.getContrasena().equals(contraseña_login)) {
             this.consola.limpiar();
@@ -76,7 +86,7 @@ public class SistemaDeMatricula {
                     String apellido = this.consola.inputString("Ingrese apellido del estudiante: ");
                     String contraseña = this.consola.inputString("Ingrese contraseña del estudiante: ");
                     Estudiante estudiante = new Estudiante(documento, nombre, apellido, contraseña);
-                    this.usuarios.agregarUsuario(estudiante);
+                    this.usuarios.agregar(estudiante.getDocumento(), estudiante);
                     this.consola.limpiar();
                     this.consola.printlnColor(Consola.VERDE, "Estudiante registrado con éxito.");
                     break;
@@ -106,16 +116,26 @@ public class SistemaDeMatricula {
                     this.consola.limpiar();
                     this.consola.printlnColor(Consola.CYAN, "Materias disponibles:");
 
-                    ConjuntoEstatico materias_aux = new ConjuntoEstatico();
+                    ConjuntoEstaticoMateria materias_aux = new ConjuntoEstaticoMateria();
+                    materias_aux.inicializar();
 
                     while (!this.materias.estaVacio()) {
-                        Materia materia_aux;
+                        Materia m = this.materias.elegir();
 
-                        materia_aux = this.materias.sacar(materia_aux);
+                        this.consola.println("Nombre: " + m.getNombre() + " | Cupo: " + m.getCupo());
+
+                        materias_aux.agregar(m);
+
+                        materias.sacar(m);
                     }
 
-                    this.consola.limpiar();
-                    this.consola.printlnColor(Consola.VERDE, "Estudiante registrado con éxito.");
+                    while (!materias_aux.estaVacio()) {
+                        Materia m = materias_aux.elegir();
+                        materias.agregar(m);
+                        materias_aux.sacar(m);
+                    }
+
+                    this.consola.println("");
                     break;
 
                 case 4:
