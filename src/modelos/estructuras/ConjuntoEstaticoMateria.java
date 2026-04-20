@@ -53,74 +53,70 @@ public class ConjuntoEstaticoMateria implements I_ConjuntoEstaticoMateria {
         }
     }
 
-
-    
-    // implementacion dinámica
-
-    // public class Nodo{
-    //     int cant; 
-    //     int primero;
+    // Implementacion dinamica alternativa
+    // private class Nodo {
+    // int valor;
+    // Nodo sig;
     // }
-
-        // private Nodo primero 
-        // private int cant;
-        // private static final int MAX = 100;
-
-    // public void inicializar(){
-        // primero = null;
-        //  cant = 0;
+    //
+    // private Nodo primero;
+    // private int cant;
+    // private static final int MAX = 100;
+    //
+    // public void inicializar() {
+    // primero = null;
+    // cant = 0;
     // }
-
-    // public void agregar(Materia materia ){
-        // if(!pertenece(Materia materia ) && cant < MAX){
-            // Nodo nuevo = new Nodo() 
-            // nuevo.valor = materia;
-            // nuevo.sig = primero;
-            // primero = nuevo;
-            // cant++;  
-
-        // }
+    //
+    // public void agregar(int valor) {
+    // if (!pertenece(valor) && cant < MAX) {
+    // Nodo nuevo = new Nodo();
+    // nuevo.valor = valor;
+    // nuevo.sig = primero;
+    // primero = nuevo;
+    // cant++;
     // }
-
-    // public void estavacio(){
-        // return primero == null;
     // }
-
-    // public void pertenece(Materia materia){
-        // Nodo actual =primero;
-
-        // while(actual!=null){
-            // if(actual.valor.getId===materia.getId()){
-                // return true;
-            // }
-            // actual = actual.sig; 
-        // }
-        // return false;
+    //
+    // public boolean estaVacio() {
+    // return primero == null;
     // }
-
-    // public void sacar(){
-    // if (primero != null) {
-    //         if (primero.valor.getId() == materia.getId()) {
-    //             primero = primero.sig;
-    //             cant--;
-    //         } else {
-    //             Nodo actual = primero;
-
-    //             while (actual.sig != null &&
-    //                    actual.sig.valor.getId() != materia.getId()) {
-    //                 actual = actual.sig;
-    //             }
-
-    //             if (actual.sig != null) {
-    //                 actual.sig = actual.sig.sig;
-    //                 cant--;
-    //             }
-    //         }
-    //     }
+    //
+    // public int elegir() {
+    // return estaVacio() ? 0 : primero.valor;
     // }
-
-// public Materia elegir() {
-//     return estaVacio() ? null : primero.valor;
-// }
+    //
+    // public boolean pertenece(int valor) {
+    // Nodo actual = primero;
+    // while (actual != null) {
+    // if (actual.valor == valor) {
+    // return true;
+    // }
+    // actual = actual.sig;
+    // }
+    // return false;
+    // }
+    //
+    // public void sacar(int valor) {
+    // if (primero == null) {
+    // return;
+    // }
+    //
+    // if (primero.valor == valor) {
+    // primero = primero.sig;
+    // cant--;
+    // return;
+    // }
+    //
+    // Nodo actual = primero;
+    // while (actual.sig != null && actual.sig.valor != valor) {
+    // actual = actual.sig;
+    // }
+    //
+    // if (actual.sig != null) {
+    // actual.sig = actual.sig.sig;
+    // cant--;
+    // }
+    // }
 
 }

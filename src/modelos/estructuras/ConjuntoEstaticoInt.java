@@ -46,41 +46,42 @@ public class ConjuntoEstaticoInt implements I_ConjuntoEstaticoInt {
         return i < this.cant;
     }
 
-        // private Class Nodo{
-    // int valor;
+    // implementacion dinamica
+
+    // private class Nodo{
+    // Materia valor;
     // Nodo sig;
     // }
+
     // private Nodo primero;
     // private int cant;
     // private static final int MAX = 100;
 
     // public void inicializar(){
     // primero = null;
-    // int cant;
+    // cant = 0;
     // }
 
-    // public void agregar(int valor){
-    // if(!pertenece(valor) && cant<MAX){
+    // public void agregar(Materia materia ){
+    // if (!pertenece(materia) && cant < MAX){
     // Nodo nuevo = new Nodo();
-    // nuevo.valor = valor;
+    // nuevo.valor = materia;
     // nuevo.sig = primero;
     // primero = nuevo;
     // cant++;
+
     // }
     // }
 
-    // public void estavacio(){
+    // public boolean estaVacio(){
     // return primero == null;
     // }
 
-    // public void elegir(int valor){
-    // return nuevo.primero;
-    // }
+    // public boolean pertenece(Materia materia){
+    // Nodo actual =primero;
 
-    // public void pertenece(int valor){
-    // Nodo actual = primero
-    // while (actual != null ){
-    // if(actual.valor == valor ){
+    // while(actual!=null){
+    // if (actual.valor.getId() == materia.getId()){
     // return true;
     // }
     // actual = actual.sig;
@@ -88,23 +89,29 @@ public class ConjuntoEstaticoInt implements I_ConjuntoEstaticoInt {
     // return false;
     // }
 
-    // public void sacar(){
-    // if(primero != null){
-    // if (primero.valor == valor){
+    // public void sacar(Materia materia){
+    // if (primero != null) {
+    // if (primero.valor.getId() == materia.getId()) {
     // primero = primero.sig;
     // cant--;
-    // }else{
-    // nodo actual = primero ;
+    // } else {
+    // Nodo actual = primero;
 
-    // while (actual.sig != null && actual.sig.valor != valor){
+    // while (actual.sig != null &&
+    // actual.sig.valor.getId() != materia.getId()) {
     // actual = actual.sig;
     // }
 
-    // if(actual.sig!=null){
-    // actual.sig=actual.sig.sig;
-    // cant --
+    // if (actual.sig != null) {
+    // actual.sig = actual.sig.sig;
+    // cant--;
     // }
     // }
     // }
     // }
+
+    // public Materia elegir() {
+    // return estaVacio() ? null : primero.valor;
+    // }
+
 }
