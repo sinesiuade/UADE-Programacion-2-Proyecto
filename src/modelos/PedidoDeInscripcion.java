@@ -7,6 +7,11 @@ public class PedidoDeInscripcion {
     private Estudiante estudiante;
     private Materia materia;
 
+    PedidoDeInscripcion(Estudiante estudiante, Materia materia) {
+        this.estudiante = estudiante;
+        this.materia = materia;
+    }
+
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
@@ -27,4 +32,7 @@ public class PedidoDeInscripcion {
         System.out.println("Estudiante: " + estudiante.getNombre() + " - Materia: " + materia.getNombre());
     }
 
+    public String to_String() {
+        return "Estudiante: " + this.estudiante.to_StringUsuario() + " | Materia: " + materia.to_String();
+    }
 }

@@ -1,5 +1,7 @@
 package modelos.usuario;
 
+import modelos.Materia;
+
 public class Usuario {
 
     protected int documento;
@@ -7,10 +9,8 @@ public class Usuario {
     protected String apellido;
     protected String contrasena;
 
-
     public Usuario() {
     }
-
 
     public Usuario(int documento, String nombre, String apellido, String contrasena) {
         this.documento = documento;
@@ -35,7 +35,6 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-
     public int getDocumento() {
         return documento;
     }
@@ -52,4 +51,8 @@ public class Usuario {
         return contrasena;
     }
 
+    public String to_String() {
+
+        return "DNI: " + documento + " | Nombre: " + nombre + " | Apellido: " + apellido;
+    }
 }
