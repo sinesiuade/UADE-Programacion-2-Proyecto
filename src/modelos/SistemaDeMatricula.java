@@ -3,6 +3,7 @@ package modelos;
 import interfaces.estructuras.I_DiccionarioDinamico;
 import interfaces.estructuras.I_ConjuntoEstaticoMateria;
 import interfaces.estructuras.I_ColaPedidos;
+import interfaces.estructuras.I_ConjuntoEstaticoInt;
 import modelos.consola.Consola;
 import modelos.estructuras.DiccionarioDinamico;
 import modelos.estructuras.ConjuntoEstaticoMateria;
@@ -79,9 +80,11 @@ public class SistemaDeMatricula {
             this.consola.println("Administrador, que desea hacer:");
             this.consola.println("0 - Registrar nuevo estudiante.");
             this.consola.println("1 - Registrar nueva materia.");
-            this.consola.println("2 - Ver Pedidos de Inscripción.");
-            this.consola.println("3 - Procesar Pedidos de Inscripción.");
-            this.consola.println("4 - Salir.");
+            this.consola.println("2 - Eliminar materia.");
+            this.consola.println("3 - Eliminar estudiante.");
+            this.consola.println("4 - Ver Pedidos de Inscripción.");
+            this.consola.println("5 - Procesar Pedidos de Inscripción.");
+            this.consola.println("6 - Salir.");
             int elección = this.consola.inputInt("Elección: ");
             switch (elección) {
                 case 0:
@@ -95,15 +98,25 @@ public class SistemaDeMatricula {
 
                 case 2:
                     this.consola.limpiar();
-                    adm_lista_pedidos();
+                    adm_eliminar_materia();
                     break;
 
                 case 3:
                     this.consola.limpiar();
-                    adm_procesar_pedidos();
+                    // adm_eliminar_estudiante();
                     break;
 
                 case 4:
+                    this.consola.limpiar();
+                    adm_lista_pedidos();
+                    break;
+
+                case 5:
+                    this.consola.limpiar();
+                    adm_procesar_pedidos();
+                    break;
+
+                case 6:
                     this.consola.limpiar();
                     usu_cierra_sesion();
                     break;
@@ -186,6 +199,44 @@ public class SistemaDeMatricula {
         this.materias.agregar(materia);
         this.consola.limpiar();
         this.consola.printlnColor(Consola.VERDE, "Materia registrada con éxito.");
+    }
+
+    private void adm_eliminar_materia() {
+        this.consola.printlnColor(Consola.CYAN, "Eliminando materia");
+        est_lista_materias();
+        int id_materia = this.consola.inputInt("Ingrese id de la materia: ");
+
+        I_ConjuntoEstaticoMateria materias_temp = copiarConjunto(this.materias);
+
+        while (!materias_temp.estaVacio()) {
+            Materia m = materias_temp.elegir();
+
+            if (m.getId() == id_materia) {
+                I_ConjuntoEstaticoInt claves = this.usuarios.claves();
+
+                while (!claves.estaVacio()) {
+                    int clave = claves.elegir();
+
+                    Usuario usuario = this.usuarios.recuperar(clave);
+
+                    if (usuario instanceof Estudiante) {
+                        Estudiante estudiante = (Estudiante) usuario;
+
+                        estudiante.eliminarMateria(id_materia);
+                    }
+
+                    claves.sacar(clave);
+                }
+
+                this.materias.sacar(m);
+                break;
+            }
+
+            materias_temp.sacar(m);
+        }
+
+        this.consola.limpiar();
+        this.consola.printlnColor(Consola.VERDE, "Materia eliminada con éxito.");
     }
 
     private int proximo_id_materia_disponible() {
