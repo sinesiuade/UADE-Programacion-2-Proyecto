@@ -103,7 +103,7 @@ public class SistemaDeMatricula {
 
                 case 3:
                     this.consola.limpiar();
-                    // adm_eliminar_estudiante();
+                    adm_eliminar_estudiante();
                     break;
 
                 case 4:
@@ -237,6 +237,53 @@ public class SistemaDeMatricula {
 
         this.consola.limpiar();
         this.consola.printlnColor(Consola.VERDE, "Materia eliminada con éxito.");
+    }
+
+    private void adm_eliminar_estudiante() {
+        this.consola.printlnColor(Consola.CYAN, "Eliminando estudiante");
+        adm_listar_estudiante();
+        int dni_estudiante = this.consola.inputInt("Ingrese documento del estudiante: ");
+
+        Usuario usuario = this.usuarios.recuperar(dni_estudiante);
+
+        if (usuario != null) {
+            if (usuario instanceof Estudiante) {
+                Estudiante estudiante = (Estudiante) usuario;
+
+                int i = 0;
+                for (Materia materia : estudiante.getMateriasInscriptas()) {
+                    if (i < estudiante.getCantMateriasInscriptas()) {
+                        estudiante.eliminarMateria(materia.getId());
+                    } else {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            this.usuarios.eliminar(dni_estudiante);
+
+            this.consola.printlnColor(Consola.VERDE, "Estudiante eliminado con éxito.");
+        } else {
+            this.consola.limpiar();
+            this.consola.printlnColor(Consola.ROJO, "Usuario no encontrado.");
+        }
+    }
+
+    private void adm_listar_estudiante() {
+        I_ConjuntoEstaticoInt claves = this.usuarios.claves();
+        while (!claves.estaVacio()) {
+            int clave = claves.elegir();
+
+            Usuario usuario = this.usuarios.recuperar(clave);
+
+            if (usuario instanceof Estudiante) {
+                Estudiante estudiante = (Estudiante) usuario;
+
+                this.consola.println(estudiante.to_String());
+            }
+
+            claves.sacar(clave);
+        }
     }
 
     private int proximo_id_materia_disponible() {

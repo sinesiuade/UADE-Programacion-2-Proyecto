@@ -14,6 +14,7 @@ public class Main {
             System.out.println(Consola.ROJO + "Ocurrió un error inesperado: " + e.getMessage());
             e.printStackTrace();
         }
+        System.out.println(Consola.AMARILLO + "Se ha finalizado la ejecución del programa.");
         while (true) {
 
         }

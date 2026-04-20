@@ -48,28 +48,15 @@ public class DiccionarioDinamico implements I_DiccionarioDinamico {
             }
         }
     }
-    /*
-     * public void eliminar(int clave) {
-     * if (this.origen != null) {
-     * if (this.origen.getClave() == clave) {
-     * this.origen = this.origen.getNodoSiguiente();
-     * } else {
-     * NodoClaveUsuario nodo_aux = this.origen;
-     * while (nodo_aux.getNodoSiguiente() == null &&
-     * nodo_aux.getNodoSiguiente().getClave() != clave) {
-     * nodo_aux = nodo_aux.getNodoSiguiente();
-     * }
-     * if (nodo_aux.getNodoSiguiente() != null) {
-     * nodo_aux.setNodoSiguiente(nodo_aux.getNodoSiguiente().getNodoSiguiente());
-     * }
-     * }
-     * }
-     * }
-     */
 
     public Usuario recuperar(int clave) {
         NodoClaveUsuario nodo_clave = getNodoPorClave(clave);
-        return nodo_clave.getUsuario();
+
+        if (nodo_clave != null) {
+            return nodo_clave.getUsuario();
+        }
+
+        return null;
     }
 
     public I_ConjuntoEstaticoInt claves() {

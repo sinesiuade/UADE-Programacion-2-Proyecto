@@ -27,9 +27,7 @@ public class Estudiante extends Usuario {
     }
 
     public Materia[] getMateriasInscriptas() { // devuelve todas las materias inscriptas
-
         return materias_alumno;
-
     }
 
     public boolean eliminarMateria(int idMateria) {
@@ -59,11 +57,19 @@ public class Estudiante extends Usuario {
 
     public String to_String() {
         String materias = "[";
+
+        int i = 0;
         for (Materia materia : materias_alumno) {
-            materias += materia.to_String();
-            materias += ", ";
+            if (i < this.cant_materias) {
+                materias += materia.to_String();
+                materias += ", ";
+            } else {
+                break;
+            }
+            i++;
         }
         materias += "]";
+
         return "DNI: " + documento + " | Nombre: " + nombre + " | Apellido: " + apellido + " | Materias Inscriptas ("
                 + this.cant_materias + "): " + materias;
     }
