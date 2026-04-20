@@ -36,15 +36,36 @@ public class DiccionarioDinamico implements I_DiccionarioDinamico {
                 this.origen = this.origen.getNodoSiguiente();
             } else {
                 NodoClaveUsuario nodo_aux = this.origen;
-                while (nodo_aux.getNodoSiguiente() == null && nodo_aux.getNodoSiguiente().getClave() != clave) {
+
+                while (nodo_aux.getNodoSiguiente() != null &&
+                        nodo_aux.getNodoSiguiente().getClave() != clave) {
                     nodo_aux = nodo_aux.getNodoSiguiente();
                 }
+
                 if (nodo_aux.getNodoSiguiente() != null) {
                     nodo_aux.setNodoSiguiente(nodo_aux.getNodoSiguiente().getNodoSiguiente());
                 }
             }
         }
     }
+    /*
+     * public void eliminar(int clave) {
+     * if (this.origen != null) {
+     * if (this.origen.getClave() == clave) {
+     * this.origen = this.origen.getNodoSiguiente();
+     * } else {
+     * NodoClaveUsuario nodo_aux = this.origen;
+     * while (nodo_aux.getNodoSiguiente() == null &&
+     * nodo_aux.getNodoSiguiente().getClave() != clave) {
+     * nodo_aux = nodo_aux.getNodoSiguiente();
+     * }
+     * if (nodo_aux.getNodoSiguiente() != null) {
+     * nodo_aux.setNodoSiguiente(nodo_aux.getNodoSiguiente().getNodoSiguiente());
+     * }
+     * }
+     * }
+     * }
+     */
 
     public Usuario recuperar(int clave) {
         NodoClaveUsuario nodo_clave = getNodoPorClave(clave);
