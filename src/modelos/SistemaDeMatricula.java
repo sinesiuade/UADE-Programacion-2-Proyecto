@@ -86,43 +86,36 @@ public class SistemaDeMatricula {
             this.consola.println("5 - Procesar Pedidos de Inscripción.");
             this.consola.println("6 - Salir.");
             int elección = this.consola.inputInt("Elección: ");
+            this.consola.limpiar();
             switch (elección) {
                 case 0:
-                    this.consola.limpiar();
                     adm_registra_estudiante();
                     break;
 
                 case 1:
-                    this.consola.limpiar();
                     adm_registra_materia();
 
                 case 2:
-                    this.consola.limpiar();
                     adm_eliminar_materia();
                     break;
 
                 case 3:
-                    this.consola.limpiar();
                     adm_eliminar_estudiante();
                     break;
 
                 case 4:
-                    this.consola.limpiar();
                     adm_lista_pedidos();
                     break;
 
                 case 5:
-                    this.consola.limpiar();
                     adm_procesar_pedidos();
                     break;
 
                 case 6:
-                    this.consola.limpiar();
                     usu_cierra_sesion();
                     break;
 
                 default:
-                    this.consola.limpiar();
                     this.consola.printlnColor(Consola.ROJO, "No ha indicado una opción válida.");
                     break;
             }
@@ -135,39 +128,33 @@ public class SistemaDeMatricula {
             this.consola.println("4 - Anular inscripcion a materia.");
             this.consola.println("5 - Salir.");
             int elección = this.consola.inputInt("Elección: ");
+            this.consola.limpiar();
             switch (elección) {
                 case 0:
-                    this.consola.limpiar();
                     est_lista_materias();
                     break;
 
                 case 1:
-                    this.consola.limpiar();
                     est_solicitar_inscripcion();
                     break;
 
                 case 2:
-                    this.consola.limpiar();
                     est_ver_solicitudes_pendientes();
                     break;
 
                 case 3:
-                    this.consola.limpiar();
                     est_ver_materias_inscriptas();
                     break;
 
                 case 4:
-                    this.consola.limpiar();
                     est_anular_inscripcion();
                     break;
 
                 case 5:
-                    this.consola.limpiar();
                     usu_cierra_sesion();
                     break;
 
                 default:
-                    this.consola.limpiar();
                     this.consola.printlnColor(Consola.ROJO, "No ha indicado una opción válida.");
                     break;
             }

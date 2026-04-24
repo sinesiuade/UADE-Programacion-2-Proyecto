@@ -35,7 +35,6 @@ public class ConjuntoEstaticoInt implements I_ConjuntoEstaticoInt {
             this.contenido[i] = this.contenido[this.cant - 1];
             this.cant--;
         }
-
     }
 
     public boolean pertenece(int valor) {
@@ -46,7 +45,7 @@ public class ConjuntoEstaticoInt implements I_ConjuntoEstaticoInt {
         return i < this.cant;
     }
 
-        // private Class Nodo{
+    // private Class Nodo{
     // int valor;
     // Nodo sig;
     // }
