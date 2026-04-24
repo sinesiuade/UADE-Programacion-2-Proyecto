@@ -1,10 +1,13 @@
 package modelos.usuario;
 
+import interfaces.estructuras.I_ConjuntoEstaticoMateria;
 import modelos.Materia;
+import modelos.Utilidades;
+import modelos.estructuras.ConjuntoEstaticoMateria;
 
 public class Estudiante extends Usuario {
 
-    private Materia[] materias_alumno = new Materia[10];
+    private I_ConjuntoEstaticoMateria materias_alumno;
     private int cant_materias = 0;
 
     public Estudiante() {
@@ -13,60 +16,56 @@ public class Estudiante extends Usuario {
 
     public Estudiante(int documento, String nombre, String apellido, String contraseña) {
         super(documento, nombre, apellido, contraseña);
+
+        this.materias_alumno = new ConjuntoEstaticoMateria();
+        this.materias_alumno.inicializar();
     }
 
     public void agregarMateria(Materia materia) { // Permite inscribirse a materias
-        if (this.cant_materias < materias_alumno.length) {
-            materias_alumno[this.cant_materias] = materia;
-            this.cant_materias++;
-        }
+        this.materias_alumno.agregar(materia);
     }
 
     public int getCantMateriasInscriptas() {
         return this.cant_materias;
     }
 
-    public Materia[] getMateriasInscriptas() { // devuelve todas las materias inscriptas
-        return materias_alumno;
+    public I_ConjuntoEstaticoMateria getMateriasInscriptas() { // devuelve una copia de todas las materias inscriptas
+        I_ConjuntoEstaticoMateria materias_temp = Utilidades.copiarConjunto(this.materias_alumno);
+        return materias_temp;
     }
 
     public boolean eliminarMateria(int idMateria) {
-        int indiceEncontrado = -1;
+        I_ConjuntoEstaticoMateria materias_temp = Utilidades.copiarConjunto(this.materias_alumno);
 
-        for (int i = 0; i < this.cant_materias; i++) {
-            if (this.materias_alumno[i].getId() == idMateria) {
-                indiceEncontrado = i;
+        Materia materia_encontrada = null;
+
+        while (!materias_temp.estaVacio()) {
+            Materia materia = materias_temp.elegir();
+            if (materia.getId() == idMateria) {
+                materia_encontrada = materia;
                 break;
             }
+            materias_temp.sacar(materia);
         }
 
-        if (indiceEncontrado != -1) {
-            this.materias_alumno[indiceEncontrado].sumarCupoDisponible();
+        if (materia_encontrada != null) {
+            materia_encontrada.sumarCupoDisponible();
 
-            for (int i = indiceEncontrado; i < this.cant_materias - 1; i++) {
-                this.materias_alumno[i] = this.materias_alumno[i + 1];
-            }
-
-            this.materias_alumno[this.cant_materias - 1] = null;
-            this.cant_materias--;
+            materias_alumno.sacar(materia_encontrada);
             return true;
         }
-
-        return false; // No se encontró la materia
+        return false;
     }
 
     public String to_String() {
         String materias = "[";
 
-        int i = 0;
-        for (Materia materia : materias_alumno) {
-            if (i < this.cant_materias) {
-                materias += materia.to_String();
-                materias += ", ";
-            } else {
-                break;
-            }
-            i++;
+        I_ConjuntoEstaticoMateria materias_temp = Utilidades.copiarConjunto(this.materias_alumno);
+
+        while (!materias_temp.estaVacio()) {
+            Materia materia = materias_temp.elegir();
+            materias += materia.to_String();
+            materias += ", ";
         }
         materias += "]";
 

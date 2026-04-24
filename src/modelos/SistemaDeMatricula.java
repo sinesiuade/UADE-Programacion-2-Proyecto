@@ -237,14 +237,11 @@ public class SistemaDeMatricula {
             if (usuario instanceof Estudiante) {
                 Estudiante estudiante = (Estudiante) usuario;
 
-                int i = 0;
-                for (Materia materia : estudiante.getMateriasInscriptas()) {
-                    if (i < estudiante.getCantMateriasInscriptas()) {
-                        estudiante.eliminarMateria(materia.getId());
-                    } else {
-                        break;
-                    }
-                    i++;
+                I_ConjuntoEstaticoMateria materias_temp = estudiante.getMateriasInscriptas();
+                while (!materias_temp.estaVacio()) {
+                    Materia materia = materias_temp.elegir();
+                    estudiante.eliminarMateria(materia.getId());
+                    materias_temp.sacar(materia);
                 }
             }
             this.usuarios.eliminar(dni_estudiante);
@@ -405,8 +402,12 @@ public class SistemaDeMatricula {
 
         if (usuario instanceof Estudiante) {
             Estudiante estudiante = (Estudiante) usuario;
-            for (int i = 0; i < estudiante.getCantMateriasInscriptas(); i++) {
-                this.consola.println(estudiante.getMateriasInscriptas()[i].to_String());
+
+            I_ConjuntoEstaticoMateria materias_inscriptas = estudiante.getMateriasInscriptas();
+            while (!materias_inscriptas.estaVacio()) {
+                Materia materia = materias_inscriptas.elegir();
+                this.consola.println(materia.to_String());
+                materias_inscriptas.sacar(materia);
             }
         }
         this.consola.println("");
@@ -415,10 +416,9 @@ public class SistemaDeMatricula {
     private void est_anular_inscripcion() {
         est_ver_materias_inscriptas();
         int idSeleccionado = this.consola.inputInt("Ingrese el ID de la materia para anular inscripción: ");
-        Usuario usuario = this.usuarios.recuperar(this.usuario_actual.getDocumento());
 
-        if (usuario instanceof Estudiante) {
-            Estudiante estudiante = (Estudiante) usuario;
+        if (this.usuario_actual instanceof Estudiante) {
+            Estudiante estudiante = (Estudiante) this.usuario_actual;
 
             boolean exito = estudiante.eliminarMateria(idSeleccionado);
 
